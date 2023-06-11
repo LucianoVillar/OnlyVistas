@@ -1,0 +1,10 @@
+CREATE VIEW contacto_usuarios as select usuario.nombre,usuario.mail, usuario.telefono from usuario;
+select * from lifegame.contacto_usuarios;
+CREATE VIEW descripcion as select juego.nombre, juego.descripcion from juego;
+select * from lifegame.descripcion;
+CREATE VIEW Uruguay as select * from usuario where id_pais = 1;
+Select * from lifegame.Uruguay;
+CREATE or replace VIEW juegos_USA as select juego.nombre as juego, juego.descripcion, empresa.nombre from juego inner join empresa on juego.id_empresa = empresa.id_empresa where empresa.id_pais = 5;
+select * FROM juegos_usa;
+CREATE or replace VIEW notFreeBuy as select usuario.nombre, compra.id_compra, compra.id_juego,compra.monto from usuario inner join compra on usuario.id_usuario = compra.id_usuario where monto != 0;
+select * from notfreebuy;
